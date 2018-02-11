@@ -17,7 +17,9 @@
 </div>
 <div class="ui bottom attached segment {{if skipLocationIsLoading 'loading' clearing}}">
   {{#if group.nextLocation}}
-    {{z-button class='right floated' text='Skip Location' action=(perform skipLocation group)}}
+    {{#if (gt group.locations.length 1)}}
+      {{z-button class='right floated' text='Skip Location' action=(perform skipLocation group)}}
+    {{/if}}
     <strong>{{group.nextLocation.name}}</strong>
     <address>
       {{group.nextLocation.address}}
