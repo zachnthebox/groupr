@@ -1,0 +1,7 @@
+{
+  "name": "groupr",
+  "dependencies": {
+    "semantic-ui": "^2.2.14",
+    "semantic-ui-calendar": "^0.0.6"
+  }
+}

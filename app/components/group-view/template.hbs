@@ -1,0 +1,58 @@
+<div class="ui top attached secondary segment">
+  Group Details
+</div>
+<div class="ui bottom attached segment">
+  {{group-form group=group}}
+</div>
+<div class="ui top attached secondary segment">
+  Next Date
+</div>
+<div class="ui bottom attached  segment {{if skipDateIsLoading 'loading' 'clearing'}}">
+  {{z-button class='right floated' text='Skip Date' action=(perform skipDate group)}}
+  <p>{{moment-format group.nextDate 'dddd L LT'}}</p>
+  <div class="cleared"></div>
+</div>
+<div class="ui top attached secondary segment">
+  Next Location
+</div>
+<div class="ui bottom attached segment {{if skipLocationIsLoading 'loading' clearing}}">
+  {{#if group.nextLocation}}
+    {{z-button class='right floated' text='Skip Location' action=(perform skipLocation group)}}
+    <strong>{{group.nextLocation.name}}</strong>
+    <address>
+      {{group.nextLocation.address}}
+      <br>
+      {{group.nextLocation.city}}, {{group.nextLocation.state}} {{group.nextLocation.zipCode}}
+    </address>
+  {{else}}
+    Please add a location.
+  {{/if}}
+</div>
+<div class="ui top attached secondary segment">
+  Locations
+</div>
+<div class="ui bottom attached segment {{if removeLocationIsLoading 'loading'}}">
+  <div class="ui divided items">
+    {{#each group.locations as |location|}}
+      <div class="item">
+        <div class="content">
+          <div class="item__remove" {{action (perform removeLocation) location}}>
+            <i class="red minus circle icon"></i>
+          </div>
+          <a class="header">{{location.name}}</a>
+          <div class="description">
+            <address>
+              {{location.address}}
+              <br>
+              {{location.city}}, {{location.state}} {{location.zipCode}}
+            </address>
+          </div>
+          <div class="extra">
+            {{z-checkbox label='Active' value=location.active action=(action 'locationActiveChange' location)}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    {{add-group-location group=group action=(action (perform groupLoading))}}
+  </div>
+</div>

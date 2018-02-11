@@ -1,0 +1,21 @@
+<div class="ui segment">
+  <div class="ui divided items">
+    {{#each model as |group|}}
+      <div class="item" {{action 'viewGroup' group}}>
+        <div class="content">
+          <a class="header">{{group.name}}</a>
+          <div class="description">
+            <span>Next Location</span>
+            <p>{{group.nextLocation.address}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    <div class="item" {{action 'createGroup'}}>
+      <div class="content">
+        <i class="big plus circle icon"></i>
+        <span>Create Group</span>
+      </div>
+    </div>
+  </div>
+</div>

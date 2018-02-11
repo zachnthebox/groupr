@@ -1,0 +1,14 @@
+{{#form-container loading=loading didValidate=didValidate action='submit' as |form|}}
+  {{#form.field label='Name' as |field|}}
+    {{field.text-field model=this valuePath='name' disabled=disabled}}
+  {{/form.field}}
+  {{#form.field label='Day Of The Week' as |field|}}
+    {{#field.dropdown model=this valuePath='dayOfWeek' selected=group.dayOfWeek disabled=disabled options=daysOfTheWeek as |dayOfWeek|}}
+      {{moment-format dayOfWeek 'dddd' 'E'}}
+    {{/field.dropdown}}
+  {{/form.field}}
+  {{#form.field label='Meeting Time' as |field|}}
+    {{field.datetime type='time' model=this valuePath='time' disabled=disabled today=false startMode='minute'}}
+  {{/form.field}}
+  {{form.submit-button text='Save' loading=groupLoading}}
+{{/form-container}}

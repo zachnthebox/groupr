@@ -1,0 +1,28 @@
+{{#if showForm}}
+  <div class="content">
+    {{#form-container action='submit' as |form|}}
+      {{#form.field label='Name' as |field|}}
+        {{field.text-field model=this valuePath='name' disabled=loading}}
+      {{/form.field}}
+      {{#form.field label='Address' as |field|}}
+        {{field.text-field model=this valuePath='address' disabled=loading}}
+      {{/form.field}}
+      {{#form.field label='City' as |field|}}
+        {{field.text-field model=this valuePath='city' disabled=loading}}
+      {{/form.field}}
+      {{#form.field label='State' as |field|}}
+        {{field.text-field model=this valuePath='state' disabled=loading}}
+      {{/form.field}}
+      {{#form.field label='Zip Code' as |field|}}
+        {{field.text-field model=this valuePath='zipCode' disabled=loading}}
+      {{/form.field}}
+      {{form.submit-button text='Add' loading=loading}}
+      {{z-button text='cancel' action=(action (mut showForm) false)}}
+    {{/form-container}}
+  </div>
+{{else}}
+  <div class="content" {{action 'showForm'}}>
+    <i class="big plus circle icon"></i>
+    <span>Add Location</span>
+  </div>
+{{/if}}

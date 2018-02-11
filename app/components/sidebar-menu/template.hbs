@@ -1,0 +1,47 @@
+<a class='logo' href='/'></a>
+{{#each sidebarMenuManager.menuItems as |menuItem|}}
+  {{#if (and menuItem.children.length menuItem.isShownInSidebar)}}
+    <div class="item">
+      {{#link-to menuItem.routeName tagName='div' class="clickable parent-route" click=(action 'clickedLink')}}
+        {{sidebar-menu-item item=menuItem}}
+      {{/link-to}}
+      {{#if menuItem.children}}
+        <div class="menu">
+          {{#each menuItem.children as |child|}}
+            {{#if (and child.sidebarAction child.isShownInSidebar)}}
+              <a href="" class="item" {{action 'sidebarAction' child}}>
+                {{sidebar-menu-item item=child}}
+              </a>
+            {{else}}
+              {{#if (and child.sidebarURL child.isShownInSidebar)}}
+                <a href="{{child.sidebarURL}}" class="item" target="_blank" {{action 'clickedLink' preventDefault=false}}>
+                  {{sidebar-menu-item item=child}}
+                </a>
+              {{else if child.isShownInSidebar}}
+                {{#link-to child.routeName class='item' click=(action 'clickedLink')}}
+                  {{sidebar-menu-item item=child}}
+                {{/link-to}}
+              {{/if}}
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  {{else}}
+    {{#if (and menuItem.sidebarAction menuItem.isShownInSidebar)}}
+      <a href="" class="item" {{action 'sidebarAction' menuItem}}>
+        {{sidebar-menu-item item=menuItem}}
+      </a>
+    {{else}}
+      {{#if (and menuItem.sidebarURL menuItem.isShownInSidebar)}}
+        <a href="{{menuItem.sidebarURL}}" class="item" target="_blank" {{action 'clickedLink' preventDefault=false}}>
+          {{sidebar-menu-item item=menuItem}}
+        </a>
+      {{else if menuItem.isShownInSidebar}}
+        {{#link-to menuItem.routeName class='item' current-when=(if menuItem.isApplicationRoute 'index') click=(action 'clickedLink')}}
+          {{sidebar-menu-item item=menuItem}}
+        {{/link-to}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/each}}

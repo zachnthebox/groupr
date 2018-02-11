@@ -1,0 +1,36 @@
+$mobileBreakpoint: 320px;
+$tabletBreakpoint: 768px;
+$computerBreakpoint: 992px;
+$largeMonitorBreakpoint: 1200px;
+$widescreenMonitorBreakpoint: 1920px;
+$sidebar-width: 200px;
+$appbar-height: 48px;
+$grouprBlue: #368de0;
+
+@import 'application';
+@import 'forms';
+
+.logo {
+  background-image: url("/assets/images/logo.png");
+  background-repeat: no-repeat;
+  height: 45px;
+  width: 135px;
+  background-size: 135px 45px;
+  margin: 5.5px;
+  display: inline-block;
+}
+
+
+[data-ember-action] {
+  cursor: pointer;
+}
+
+.item__remove {
+  float: right;
+  font-size: 1.5em;
+  padding-top: .5em;
+}
+
+.cleared {
+  clear: both;
+}

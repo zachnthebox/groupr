@@ -2,10 +2,17 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const path = require('path');
 
 module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     // Add options here
+  });
+
+  const jsSource = 'bower_components/semantic-ui-calendar/dist';
+  app.import({
+    development: path.join(jsSource, 'calendar.js'),
+    production: path.join(jsSource, 'calendar.min.js')
   });
 
   // Use `app.import` to add additional libraries to the generated

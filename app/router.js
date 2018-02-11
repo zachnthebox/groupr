@@ -7,6 +7,12 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('groups', function() {
+    this.route('group', {
+      path: ':id',
+    });
+    this.route('create');
+  });
 });
 
 export default Router;

@@ -1,0 +1,16 @@
+{{z-appbar title='Group Location Manager' toggleSidebar='toggleSidebar'}}
+<div class="pushable">
+  {{z-sidebar isOpen=sidebarIsOpen context=(concat '#' elementId ' .pushable')}}
+  <div class="pusher sidebar-flex-container">
+    {{#if sidebarMenuIsOpen}}
+      <div class="sidebar-solid">
+        {{sidebar-menu}}
+      </div>
+    {{/if}}
+    <div class="main-content">
+      <div class="ui {{if fluid 'fluid'}} container">
+        {{yield}}
+      </div>
+    </div>
+  </div>
+</div>

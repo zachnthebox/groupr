@@ -1,0 +1,96 @@
+.groupr-application {
+  & > .main.menu {
+    background-color: rgba($grouprBlue, .98);
+    height: $appbar-height;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+
+    .ellipsis {
+      height: 1.15em;
+    }
+  }
+
+  .pushable.pushable {
+    transform: none !important;
+
+    & .sidebar-modal.sidebar-modal,
+    & .sidebar-solid > .sidebar-menu {
+      position: fixed;
+      top: $appbar-height;
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+      display: flex;
+      height: calc(100% - #{$appbar-height}) !important;
+      width: $sidebar-width;
+    }
+
+    & .sidebar-modal.sidebar-modal .sidebar-menu {
+      box-shadow: none;
+    }
+  }
+
+  .sidebar-flex-container {
+    display: flex;
+    flex-direction: row;
+
+    .sidebar-solid {
+      position: relative;
+      z-index: 1;
+      width: $sidebar-width;
+      flex: 0 0 auto;
+      display: none;
+      @media (min-width: $computerBreakpoint) {
+        display: block;
+      }
+    }
+
+    .main-content {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 5.5em 0 2em;
+      height: 100vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      @media (max-width: 767px) {
+        padding: $appbar-height 0 0;
+
+        .container {
+          margin: 0 -1px !important;
+        }
+      }
+      @media (min-width: $computerBreakpoint) {
+        padding: 5.5em 2em 2em;
+      }
+    }
+  }
+
+  .sidebar-modal {
+    border: 0;
+    @media (min-width: $computerBreakpoint) {
+      display: none !important;
+    }
+  }
+
+  .sidebar-menu {
+    width: $sidebar-width !important;
+    border-radius: 0 !important;
+    border: 0;
+  }
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  font-size: 0.9em;
+
+  .footer-pusher {
+    flex-grow: 1;
+  }
+}
+
+.parent-route {
+  &:hover {
+    color: #726b6b;
+  }
+}
