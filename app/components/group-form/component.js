@@ -47,5 +47,8 @@ export default Component.extend(Validations, {
       }
       this.get('saveGroup').perform();
     },
+    post() {
+      this.get('group').post();
+    },
   },
 });

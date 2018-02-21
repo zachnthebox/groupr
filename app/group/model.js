@@ -24,4 +24,9 @@ export default DS.Model.extend({
     path: 'actions/skip-date',
     type: 'post',
   }),
+
+  post: memberAction({
+    path: 'actions/post',
+    type: 'post',
+  }),
 });
