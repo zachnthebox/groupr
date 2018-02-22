@@ -1,0 +1,20 @@
+{
+  "name": "Groupr",
+  "env": {
+    "EMBER_ENV": {
+      "description": "Value for the Ember app to use when compiling",
+      "value": "production"
+    },
+    "REBUILD_ALL": {
+      "description": "Boolean used to force Ember buildpack to reinstall npm and bower",
+      "value": "false"
+    },
+    "API_APP_NAME": {
+      "description": "Point the frontend app to the appropriate backend",
+      "value": "groupr-api"
+    }
+  },
+  "buildpacks": [{
+    "url": "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
+  }]
+}
