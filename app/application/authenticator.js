@@ -1,4 +1,7 @@
 import {
+  Promise as EmberPromise
+} from 'rsvp'
+import {
   inject as service
 } from '@ember/service';
 import Base from 'ember-simple-auth/authenticators/base';
@@ -14,6 +17,16 @@ export default Base.extend({
       data: {
         session,
       },
+    });
+  },
+
+  restore(data) {
+    return new EmberPromise((resolve, reject) => {
+      if (data.session) {
+        resolve(data);
+      } else {
+        reject();
+      }
     });
   },
 });
