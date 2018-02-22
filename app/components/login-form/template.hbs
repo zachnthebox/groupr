@@ -1,0 +1,13 @@
+<div class="ui top attached label">{{title}}</div>
+{{#form-container action='login' error=error as |form|}}
+  {{#form.field label='Email' as |field|}}
+    {{field.text-field model=this valuePath='email' disabled=disabled name='email' autocapitalize='off'}}
+  {{/form.field}}
+  {{#form.field label='Password' as |field|}}
+    {{field.text-field type='password' model=this valuePath='password' disabled=disabled name='password' autocapitalize='off'}}
+  {{/form.field}}
+  <div class="ui error message">
+    <p>{{errorMessage}}</p>
+  </div>
+  {{form.submit-button}}
+{{/form-container}}
