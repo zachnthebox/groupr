@@ -1,6 +1,6 @@
 {{#if showForm}}
   <div class="content">
-    {{#form-container action='submit' as |form|}}
+    {{#nrg-form-container action='submit' as |form|}}
       {{#form.field label='Name' as |field|}}
         {{field.text-field model=this valuePath='name' disabled=loading}}
       {{/form.field}}
@@ -17,8 +17,8 @@
         {{field.text-field model=this valuePath='zipCode' disabled=loading}}
       {{/form.field}}
       {{form.submit-button text='Add' loading=loading}}
-      {{z-button text='cancel' action=(action (mut showForm) false)}}
-    {{/form-container}}
+      {{nrg-button text='cancel' action=(action (mut showForm) false)}}
+    {{/nrg-form-container}}
   </div>
 {{else}}
   <div class="content" {{action 'showForm'}}>

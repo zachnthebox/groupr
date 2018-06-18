@@ -1,8 +1,0 @@
-{{#if hasBlock}}
-  {{yield}}
-{{else}}
-  {{#z-text-field field=field placeholder=placeholder class='left icon' disabled=disabled as |view|}}
-    {{z-icon icon=icon}}
-    {{view.input}}
-  {{/z-text-field}}
-{{/if}}

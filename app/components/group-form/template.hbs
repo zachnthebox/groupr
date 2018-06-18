@@ -1,4 +1,4 @@
-{{#form-container loading=loading didValidate=didValidate action='submit' as |form|}}
+{{#nrg-form-container loading=loading didValidate=didValidate action='submit' as |form|}}
   {{#form.field label='Name' as |field|}}
     {{field.text-field model=this valuePath='name' disabled=disabled}}
   {{/form.field}}
@@ -11,5 +11,5 @@
     {{field.datetime type='time' model=this valuePath='time' disabled=disabled today=false startMode='minute'}}
   {{/form.field}}
   {{form.submit-button text='Save' loading=groupLoading}}
-  {{z-button class='right floated' text='Post' action='post'}}
-{{/form-container}}
+  {{nrg-button class='right floated' text='Post' action='post'}}
+{{/nrg-form-container}}
