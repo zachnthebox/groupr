@@ -42,8 +42,8 @@ export default Component.extend({
     locationActiveChange(location) {
       location.save();
     },
-    addLocation(group) {
-      
+    addLocation(/*group*/) {
+
     },
   },
 });
